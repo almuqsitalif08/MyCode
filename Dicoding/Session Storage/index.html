@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Session Storage</title>
+		
+		<style>
+			.contents {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border: 2px solid blue;
+				padding: 10px;
+			}
+			
+			#incrementButton, #clear {
+				border: 2px solid silver;
+				padding: 10px;
+				border-radius: 10px;
+				font-weight: bold;
+			}
+			
+			#incrementButton:hover, #clear:hover {
+				background-color: silver;
+			}
+			
+			#incrementButton:active, #clear:active {
+				border-color: blue;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="contents" align="center">
+			<button id="incrementButton">Tambah nilai</button>
+			<button id="clear">Hapus history</button>
+			<h3>Kamu telah menekan sebanyak...</h3>
+			<h2 id="count">0</h2>
+		</div>
+		
+		<script>
+			const sessionStorageKey = "sessionStorageDumb";
+			
+			if(typeof(Storage) !== undefined){
+				if(sessionStorage.getItem(sessionStorageKey) === null){
+					sessionStorage.setItem(sessionStorageKey, 0);
+				}
+				
+				const incrementButton = document.getElementById("incrementButton");
+				const clearButton = document.getElementById("clear");
+				const textCount = document.getElementById("count");
+				
+				textCount.innerText = sessionStorage.getItem(sessionStorageKey);
+				
+				incrementButton.addEventListener("click", function(){
+					let count = sessionStorage.getItem(sessionStorageKey);
+					count++;
+					
+					sessionStorage.setItem(sessionStorageKey, count);
+					textCount.innerText = sessionStorage.getItem(sessionStorageKey);
+				});
+				
+				clearButton.addEventListener("click", function(){
+					sessionStorage.removeItem(sessionStorageKey);
+					textCount.innerText = "0";
+				});
+			}
+			else {
+				alert("Your device not support session Storage");
+			}
+		</script>
+	</body>
+</html>

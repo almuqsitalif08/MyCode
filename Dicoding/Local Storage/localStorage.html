@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Membuat Local Storage Sederhana</title>
+		<style>
+			.contents {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border: 2px solid blue;
+				padding: 15px
+			}
+			
+			#incrementButton, #clear {
+				margin-top: 5px;
+				margin-bottom: 10px;
+				border: 2px solid silver;
+				border-radius: 8px;
+				padding: 8px;
+				font-weight: bold;
+			}
+			
+			#incrementButton:hover, #clear:hover {
+				cursor: pointer;
+				background-color: silver;
+				color: white;
+			}
+			
+			#incrementButton:active, #clear:active {
+				background-color: blue;
+				border-color: blue;
+				color: black;
+			}
+		</style>
+		
+		<body>
+			<div class="contents" align="center">
+				<button id="incrementButton">Tambah nilai</button>
+				<button id="clear">Hapus history</button>
+				<h3>Kamu telah menekan tombol sebanyak </h3>
+				<h2 id="count">0</h2>
+			</div>
+			
+			<script>
+				const localStorageKey = "dumbLocalStorage";
+				
+				if(typeof(Storage) !== "undefined"){
+					if(localStorage.getItem(localStorageKey) === null){
+						localStorage.setItem(localStorageKey, 0);
+					}
+					
+					const incrementButton = document.querySelector("#incrementButton");
+					const clearButton = document.querySelector("#clear");
+					const textCount = document.querySelector("#count");
+					
+					textCount.innerText = localStorage.getItem(localStorageKey);
+					
+					incrementButton.addEventListener("click", function(){
+						let count = localStorage.getItem(localStorageKey);
+						count++;
+						
+						localStorage.setItem(localStorageKey, count);
+						textCount.innerText = localStorage.getItem(localStorageKey);
+					});
+					
+					clearButton.addEventListener("click", function(){
+						localStorage.removeItem(localStorageKey);
+						textCount.innerText = "0";
+					});
+				}
+				else {
+					alert("Your device not support local storage. :( ")
+				}
+			</script>
+		</body>
+	</head>
+</html>
