@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+#keranjang {
+	overflow: auto;
+}
+
+.jumbotron {
+	text-align: center;
+	font-size: 25px;
+	padding: 40px;
+	background-color: #a3ecf7;
+}
+
+.navImage {
+	width: 50px;
+	height: 30px;
+}
+
+.artImage {
+	width: 25%;
+	height: 25%;
+}
+
+.clear {
+	float: left;
+	margin-top: 30px;
+	margin-left: 10px;
+}
+
+.bayar {
+	float: right;
+	margin-top: 30px;
+	margin-right: 10px;
+}
+
+.profileImage {
+	width: 80%;
+	height: 80%;
+}
+
+body {
+	font-family: "Antic Slab", "Times New Roman", serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: inline;
+	font-family: "Rowdies", cursive;
+}
+
+nav {
+	background-color: #23e2f7;
+	outline: 2px solid #70ceff;
+	padding: 3px;
+	position: sticky;
+	top: 0;
+}
+
+nav a{
+	font-size: 20px;
+	text-align: center;
+	color: black;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: blue;
+}
+
+nav li {
+	display: inline;
+	margin-right: 20px;
+}
+
+main {
+	padding: 20px;
+	overflow: auto;
+}
+
+content {
+	float: left;
+	width: 70%;
+}
+
+aside {
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+	margin-top: 20px;
+	float: right;
+	width: 28%;
+}
+
+content article {
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+aside article {
+	padding: 20px;
+}
+
+section {
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+	margin-top: 20px;
+}
+
+button {
+	padding: 10px 20px;
+	font-family: "Red Rose", cursive;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: #a8a9ba;
+	border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+	background-color: #72758a;
+}
+
+#keranjang table {
+    border-collapse : collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;}
+
+#keranjang th, td {
+    text-align: center;
+    padding: 16px;}
+
+#keranjang th {
+    background-color: orange;
+    color: white;}
+	
+#keranjang tbody {
+	overflow: scroll;
+}
+
+figure {
+	text-align: center;
+}
+
+footer {
+	padding: 20px;
+    background-color: #23e2f7;
+	outline: 5px solid #70ceff;
+	font-family: "Rowdies", cursive;
+	font-size: 20px;
+	text-align: center;
+}
+
+@media screen and (max-width: 1240px) {	
+	content, aside {
+		width: 100%;
+		padding: 0;
+	}
+    @media screen and (max-width: 500px){
+	    nav {
+		    text-align: center;
+	    }
+	
+	    .navImage {
+		    width: 40px;
+		    height: 20px;
+		    margin-top: 10px;
+	    }
+	
+	    nav a {
+		    font-size: 18px;
+	    }
+    }
+}
+
